@@ -1,93 +1,90 @@
-# 📸 Photo Caption Studio  
+# 🖼️ AI Image Caption Generator  
 
-AI-powered web app that generates **fun, trendy, and poetic captions** for your uploaded photos using BLIP2 and FLAN-T5 models.  
-
----
-
-## 🚀 Features
-- Upload JPG/PNG images (up to 5MB).  
-- Get **AI-generated captions** instantly.  
-- Captions rewritten in creative, social-media style with emojis.  
-- Responsive UI with live preview and copy-to-clipboard option.  
+This is a Flask-based web app that generates **Instagram/Twitter style captions with emojis** for uploaded images using HuggingFace models.  
 
 ---
 
-## 📂 Project Structure
-
-project/
-│── app.py # Flask backend
-│── templates/
-│ └── index.html # Frontend (HTML + JS)
-│── static/
-│ ├── css/
-│ │ └── style.css # Styling
-│ └── uploads/ # Temporary image uploads
-
+## ⚡ Features
+- Upload an image (JPG/PNG)  
+- Generate attractive captions automatically  
+- Instagram/Twitter style tone with emojis ✨  
+- Copy & share captions easily  
+- Responsive modern UI  
 
 ---
 
-## ⚡ Installation & Run Locally
+## 🚀 How to Run Locally
 
-### 1️⃣ Clone the repository
+1️⃣ Clone this repository  
 ```bash
 git clone https://github.com/Swati2005prajapati/codsoft_task2.git
 cd codsoft_task2
+````
 
 2️⃣ Create virtual environment (recommended)
+
+```bash
 python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+# On Windows:
+venv\Scripts\activate
+# On Linux/Mac:
+source venv/bin/activate
+```
 
 3️⃣ Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-
-(Dependencies: Flask, Pillow, Torch, Transformers)
+**Dependencies**: Flask, Pillow, Torch, Transformers
 
 4️⃣ Run the app
-python app.py
 
+```bash
+python app.py
+```
 
 Server will start at:
-👉 http://127.0.0.1:5000
+👉 [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-🎮 How to Use
+---
 
-Upload an image (JPG/PNG).
+## 🎮 How to Use
 
-Click Generate Caption.
+* Upload an image (JPG/PNG)
+* Click **Generate Caption**
+* Get AI-generated caption with emojis ✨
+* Copy & share on social media
 
-Get AI-generated caption with emojis ✨.
-
-Copy caption and share on social media.
+---
 
 ## 📸 Screenshots
 
-View Home Screenshot
-- [👉 View Result Screenshot](https://raw.githubusercontent.com/Swati2005prajapati/codsoft_task2/main/assets/screenshot_result.png)
-  
+👉 [View Home Screenshot](https://raw.githubusercontent.com/Swati2005prajapati/codsoft_task2/main/assets/screenshot_home.png)
 
-🔗 Links
+👉 [View Result Screenshot](https://raw.githubusercontent.com/Swati2005prajapati/codsoft_task2/main/assets/screenshot_result.png)
 
-📂 GitHub Repo: Click Here
+---
 
-🎥 LinkedIn Post: (link to task completion video)
+## 🔗 Links
 
+* 📂 GitHub Repo: [codsoft\_task2](https://github.com/Swati2005prajapati/codsoft_task2)
+* 🎥 LinkedIn Post: (link to your task completion video)
 
-💡 Tech Stack
+---
 
-Frontend: HTML, CSS, JavaScript
+## 💡 Tech Stack
 
-Backend: Flask (Python)
+* **Frontend**: HTML, CSS, JavaScript
+* **Backend**: Flask (Python)
+* **AI Models**: BLIP2-flan-t5-xl, FLAN-T5-large (HuggingFace Transformers)
 
-AI Models: BLIP2-flan-t5-xl, FLAN-T5-large (HuggingFace Transformers)
+---
 
-👩‍💻 Author
+## 👩‍💻 Author
 
-Made with ❤️ by Swati Prajapati
-
-
-
-
+Made with ❤️ by **Swati Prajapati**
 
 
 
