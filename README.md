@@ -60,10 +60,9 @@ Get AI-generated caption with emojis ✨.
 
 Copy caption and share on social media.
 
-
 ## 📸 Screenshots
 
-![App Screenshot](screenshot/1mage1.png)
+![App Screenshot](screenshort/image1.png)
 
 
 🔗 Links
@@ -84,5 +83,6 @@ AI Models: BLIP2-flan-t5-xl, FLAN-T5-large (HuggingFace Transformers)
 👩‍💻 Author
 
 Made with ❤️ by Swati Prajapati
+
 
 
