@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Caption Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        
+        .loader-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #ff6f61;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="studio-container">
+        <div class="studio-header">
+            <div class="logo">
+                <i class="fas fa-camera-retro"></i>
+                <h1 class="studio-title">Photo Caption Studio</h1>
+            </div>
+            <p class="studio-subtitle">Transform your memories with AI-powered captions</p>
+        </div>
+        
+        <div class="upload-zone">
+            <h2 class="upload-title"><i class="fas fa-cloud-upload-alt"></i> Upload your special moment</h2>
+            <p class="upload-subtitle">Supported formats: JPG, PNG (Max 5MB)</p>
+            
+            <div class="file-input-wrapper">
+                <label for="fileInput" class="file-input-label">
+                    <span id="uploadIcon"><i class="fas fa-folder-open"></i></span> 
+                    <span>Select Image</span>
+                    <span class="browse-text">or browse files</span>
+                </label>
+                <input type="file" id="fileInput" class="file-input" accept="image/*">
+                <div class="file-name" id="fileName">No file selected</div>
+            </div>
+            
+            <div class="preview-container" id="previewContainer">
+                <div class="image-wrapper">
+                    <img src="" alt="Preview" class="preview-image" id="imagePreview">
+                    <div class="image-dimensions" id="imageDimensions"></div>
+                </div>
+            </div>
+            
+            <!-- Generate Caption button -->
+            <button class="generate-btn" id="generateBtn">
+                <span id="btnText">Generate Caption</span>
+                <span id="btnLoader" class="loader"><div class="loader-spinner"></div></span>
+            </button>
+
+            <!-- User hint about multiple captions -->
+            <p id="captionHint" style="color: #ff6f61; font-size: 14px; font-style: italic; margin-top:5px;">
+                <i class="fas fa-info-circle"></i> Every time you click “Generate Caption”, a new creative caption will appear!
+              </p>
+              
+
+            
+            <div class="caption-container" id="captionContainer">
+                <div class="caption-header">
+                    <h3 class="caption-title"><i class="fas fa-comment-dots"></i> Generated Caption</h3>
+                    <div class="caption-meta">
+                        <span id="processingTime"><i class="fas fa-clock"></i> <span class="time-text">Time</span></span>
+                    </div>
+                </div>
+                <div class="caption-text-wrapper" id="captionTextWrapper">
+                    <p class="caption-text" id="captionText"></p>
+                    <button class="copy-btn" id="copyBtn"><i class="far fa-copy"></i> Copy Caption</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="studio-footer">
+            <p>Made with <i class="fas fa-heart" style="color: #ff4757;"></i> by Photo Caption Studio</p>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const previewContainer = document.getElementById('previewContainer');
+        const fileName = document.getElementById('fileName');
+        const generateBtn = document.getElementById('generateBtn');
+        const captionContainer = document.getElementById('captionContainer');
+        const captionText = document.getElementById('captionText');
+        const processingTime = document.getElementById('processingTime');
+        const btnText = document.getElementById('btnText');
+        const btnLoader = document.getElementById('btnLoader');
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            fileName.textContent = file.name;
+            previewContainer.style.display = 'block';
+            captionContainer.style.display = 'none';
+            
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                imagePreview.src = event.target.result;
+                imagePreview.onload = () => {
+                    document.getElementById('imageDimensions').textContent =
+                        `${imagePreview.naturalWidth} × ${imagePreview.naturalHeight}px`;
+                };
+            };
+            reader.readAsDataURL(file);
+        });
+
+        generateBtn.addEventListener('click', async () => {
+            const file = fileInput.files[0];
+            if (!file) { alert("Please select an image first"); return; }
+
+            btnText.textContent = "Generating...";
+            btnLoader.style.display = "block";
+            generateBtn.disabled = true;
+            captionContainer.style.display = 'none';
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/', { method: 'POST', body: formData });
+                const data = await response.json();
+                if (data.error) { alert(data.error); return; }
+
+                captionText.textContent = data.caption;
+                processingTime.innerHTML = `<i class="fas fa-clock"></i> <span class="time-text">${data.processing_time}</span>`;
+                captionContainer.style.display = 'block';
+
+            } catch (err) {
+                alert("Error generating caption. Please try again.");
+                console.error(err);
+            } finally {
+                btnText.textContent = "Generate Caption";
+                btnLoader.style.display = "none";
+                generateBtn.disabled = false;
+            }
+        });
+
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(captionText.textContent).then(() => {
+                const original = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => copyBtn.innerHTML = original, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
