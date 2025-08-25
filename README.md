@@ -62,11 +62,13 @@ Copy caption and share on social media.
 
 ## 📸 Screenshots
 
-### 🔹 Home Page (Before Upload)
-![Home Page](assets/screenshot_home.png)
+## 📸 Screenshots  
 
-### 🔹 Uploaded Image with Caption
-![Result Page](assets/screenshot_result.png)
+### 🏠 Home Page (Before Upload)  
+![Home Page](https://raw.githubusercontent.com/Swati2005prajapati/codsoft_task2/main/assets/screenshot_home.png)  
+
+### 📷 Uploaded Image with Caption  
+![Result Page](https://raw.githubusercontent.com/Swati2005prajapati/codsoft_task2/main/assets/screenshot_result.png)  
 
 
 
@@ -88,6 +90,7 @@ AI Models: BLIP2-flan-t5-xl, FLAN-T5-large (HuggingFace Transformers)
 👩‍💻 Author
 
 Made with ❤️ by Swati Prajapati
+
 
 
 
