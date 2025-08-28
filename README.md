@@ -69,9 +69,11 @@ Server will start at:
 
 ## 🔗 Links
 
-* 📂 GitHub Repo: [codsoft\_task2](https://github.com/Swati2005prajapati/codsoft_task2)
 * 🎥 LinkedIn Post: (link to your task completion video)
 * 🌐 CodSoft: [CodSoft Internship](https://www.codsoft.in/)
+- 👩‍💻 [LinkedIn Profile](https://www.linkedin.com/in/swati-prajapati-b723b7368)
+- 📂 [GitHub Profile](https://github.com/Swati2005prajapati)
+
 
 ---
 
@@ -86,6 +88,7 @@ Server will start at:
 ## 👩‍💻 Author
 
 Made with ❤️ by **Swati Prajapati**
+
 
 
 
