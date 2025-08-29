@@ -69,7 +69,7 @@ Server will start at:
 
 ## 🔗 Links
 
-* 🎥 LinkedIn Post: (link to your task completion video)
+* 🎥 LinkedIn Post: [watch](https://www.linkedin.com/posts/swati-prajapati-b723b7368_codsoft-internship-aiprojects-activity-7367153770721443841-8kM5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFsvFMYB-i94v-AX-MHmzi4zE9B3jE4I-jg)
 * 🌐 CodSoft: [CodSoft Internship](https://www.codsoft.in/)
 - 👩‍💻 [LinkedIn Profile](https://www.linkedin.com/in/swati-prajapati-b723b7368)
 - 📂 [GitHub Profile](https://github.com/Swati2005prajapati)
@@ -88,6 +88,7 @@ Server will start at:
 ## 👩‍💻 Author
 
 Made with ❤️ by **Swati Prajapati**
+
 
 
 
